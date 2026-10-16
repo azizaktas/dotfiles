@@ -1,92 +1,153 @@
+# Ana format (tek satır için line_break kaldırıldı)
+format = """
+[](#2C3E50)\
+$os\
+$username\
+$hostname\
+[](bg:#F1C40F fg:#2C3E50)\
+$directory\
+[](fg:#F1C40F bg:#3498DB)\
+$git_branch\
+$git_status\
+[](fg:#3498DB bg:#2ECC71)\
+$c\
+$elixir\
+$elm\
+$golang\
+$haskell\
+$java\
+$julia\
+$nodejs\
+$nim\
+$rust\
+$scala\
+$python\
+$rlang\
+[](fg:#2ECC71 bg:#F8EFE0)\
+$docker_context\
+[](fg:#F8EFE0 bg:#EC8FD0)\
+$conda\
+[ ](fg:#EC8FD0)\
+$character
+"""
 
-# # Get editor completions based on the config schema
-"$schema" = 'https://starship.rs/config-schema.json'
+# Tek satırlı kullanım için satır atlama devre dışı bırakıldı
+[line_break]
+disabled = true
 
-
-add_newline = true
-
-format = """$time $all"""
-
+# Tek satırlı komut satırı sembolü
 [character]
-success_symbol = "[➜](white)"
-error_symbol = "[➜](white)"
-
-[git_branch]
-symbol = "🌱 "
-truncation_length = 4
-truncation_symbol = ""
-# ignore_branches = ["master", "main"]
-format = "[](fg:#ffffff bg:none)[🌱](fg:#282c34 bg:#ffffff)[](fg:#ffffff bg:#24c90a)[ $branch]($style)[](fg:#24c90a bg:none) "
-style = "fg:#ffffff bg:#24c90a"
-
-[git_commit]
-commit_hash_length = 4
-tag_symbol = "🔖 "
-format = "[\\($hash\\)]($style) [\\($tag\\)]($style)"
-style = "green"
-
-[git_status]
-format="[](fg:#ffffff bg:none)[🥶](fg:#282c34 bg:#ffffff)[ ](fg:#ffffff bg:#4da0ff)[$modified](fg:#282c34 bg:#4da0ff)[$untracked](fg:#282c34 bg:#4da0ff)[$staged](fg:#282c34 bg:#4da0ff)[$renamed](fg:#282c34 bg:#4da0ff)[](fg:#4da0ff bg:none)"
-conflicted = ""
-ahead = "🏎💨"
-behind = "😰"
-diverged = "😵"
-up_to_date = "🥰"
-untracked = "🤷"
-stashed = "📦"
-modified = "📝"
-renamed = "👅"
-deleted = "🗑️"
-style = "red"
+success_symbol = '[❯](bold green)'
+error_symbol = '[❯](bold red)'
+format = '$symbol '
 disabled = false
 
-# [git_state]
-# rebase = "REBASING"
-# merge =	"MERGING"
-# revert = "REVERTING"
-# cherry_pick = "CHERRY-PICKING"
-# bisect = "BISECTING"
-# am = "AM"
-# am_or_rebase = "AM/REBASE"
-# style =	"yellow"
-# format = '\([$state( $progress_current/$progress_total)]($style)\) '
-# disabled = true
+[username]
+show_always = true
+style_user = 'bg:#2C3E50'
+style_root = 'bg:#2C3E50'
+format = '[$user ]($style)'
+disabled = false
 
+[hostname]
+ssh_only = true
+ssh_symbol = '🌐'
+trim_at = '.'
+style = 'bg:#2C3E50'
+format = '[$ssh_symbol $hostname]($style)'
+disabled = false
+
+[os]
+style = 'bg:#2C3E50'
+disabled = true
 
 [directory]
-format = "[](fg:#ffffff bg:none)[✨](fg:#ffffff bg:#ffffff)[](fg:#ffffff bg:#ffc32b)[ $path]($style)[](fg:#ffc32b bg:none) "
-style = "fg:#ffffff bg:#ffc32b"
+style = 'bg:#F1C40F fg:#2C3E50'
+format = '[ $path ]($style)'
 truncation_length = 3
-truncate_to_repo=false
-home_symbol = ""
+truncation_symbol = '…/'
 
-[python]
-format = "[](fg:#ffffff bg:none)[🐍](fg:#ffffff bg:#ffffff)[](fg:#ffffff bg:#2eb82e)[ (${version} )(\\($virtualenv\\))](fg:#ffffff bg:#2eb82e)[](fg:#2eb82e bg:none) "
+[c]
+symbol = ''
+style = 'bg:#2ECC71 fg:#2C3E50'
+format = '[ $symbol ($version) ]($style)'
 
-
-[time]
-disabled = false
-format="[](fg:#ffffff bg:none)[💖](fg:#ffffff bg:#ffffff)[](fg:#ffffff bg:#f72851)[ $time](fg:#ffffff bg:#f72851)[](fg:#f72851 bg:none)"
-time_format = "%T" #change to %R to only have HH:MM
-style="fg:#000000 bg:#f72851"
-
-
-[cmd_duration]
-min_time = 1000
-format="[](fg:#ffffff bg:none)[🚨](fg:#ffffff bg:#ffffff)[](fg:#ffffff bg:#e60000)[ took $duration](fg:#ffffff bg:#e60000)[](fg:#e60000 bg:none)"
+[conda]
+symbol = '🅒'
+style = 'bg:#EC8FD0 fg:#2C3E50'
+format = '[ $symbol $environment ]($style)'
+ignore_base = false
 
 [docker_context]
-only_with_files = false      
-symbol  = "🐳 "
-style   = "fg:#3DA2FF"        # bright blue, tweak to taste
-format  = "[](fg:#3DA2FF bg:none)[$symbol$context]($style)[](fg:#3DA2FF bg:none) "
+symbol = ''
+style = 'bg:#FCA17D fg:#2C3E50'
+format = '[ $symbol $context ]($style) $path'
 
-[kubernetes]
-disabled = false              # the module is off by default
-symbol   = "🕸️"
-style    = "fg:#A8B9FE"       # kube-blue
-format   = "[](fg:#A8B9FE bg:none)[$symbol$context(/$namespace)]($style)[](fg:#A8B9FE bg:none) "
+[elixir]
+symbol = ''
+style = 'bg:#2ECC71 fg:#2C3E50'
+format = '[ $symbol ($version) ]($style)'
 
-# [[kubernetes.contexts]]
-# context_pattern = "colima"    # local Colima cluster
-# style           = "fg:#3DA2FF"
+[elm]
+symbol = ''
+style = 'bg:#2ECC71 fg:#2C3E50'
+format = '[ $symbol ($version) ]($style)'
+
+[git_branch]
+symbol = ''
+style = 'bg:#3498DB fg:#2C3E50'
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = 'bg:#3498DB fg:#2C3E50'
+format = '[$all_status$ahead_behind ]($style)'
+
+[golang]
+symbol = ''
+style = 'bg:#2ECC71 fg:#2C3E50'
+format = '[ $symbol ($version) ]($style)'
+
+[haskell]
+symbol = ''
+style = 'bg:#2ECC71 fg:#2C3E50'
+format = '[ $symbol ($version) ]($style)'
+
+[java]
+symbol = ''
+style = 'bg:#2ECC71 fg:#2C3E50'
+format = '[ $symbol ($version) ]($style)'
+
+[julia]
+symbol = ''
+style = 'bg:#2ECC71 fg:#2C3E50'
+format = '[ $symbol ($version) ]($style)'
+
+[nodejs]
+symbol = ''
+style = 'bg:#2ECC71 fg:#2C3E50'
+format = '[ $symbol ($version) ]($style)'
+
+[nim]
+symbol = ''
+style = 'bg:#2ECC71 fg:#2C3E50'
+format = '[ $symbol ($version) ]($style)'
+
+[python]
+symbol = '🐍'
+format = '[${symbol} ${pyenv_prefix} (${version} )(\($virtualenv\) )]($style)'
+style = 'bg:#2ECC71 fg:#2C3E50'
+
+[rlang]
+symbol = '📐'
+style = 'bg:#2ECC71 fg:#2C3E50'
+format = '[$symbol ($version )]($style)'
+
+[rust]
+symbol = ''
+style = 'bg:#2ECC71 fg:#2C3E50'
+format = '[ $symbol ($version) ]($style)'
+
+[scala]
+symbol = ''
+style = 'bg:#2ECC71 fg:#2C3E50'
+format = '[ $symbol ($version) ]($style)'
