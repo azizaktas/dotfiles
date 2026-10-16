@@ -1,3 +1,4 @@
+# Ana format (tek satır için line_break kaldırıldı)
 format = """
 [](#2C3E50)\
 $os\
@@ -27,26 +28,20 @@ $docker_context\
 [](fg:#F8EFE0 bg:#EC8FD0)\
 $conda\
 [ ](fg:#EC8FD0)\
-$line_break\
 $character
 """
 
-# Set to true to avoid a two-line prompt
+# Tek satırlı kullanım için satır atlama devre dışı bırakıldı
 [line_break]
-disabled = false
+disabled = true
 
-# Set disabled to true when using a one-line prompt for more aesthetically pleasing results
+# Tek satırlı komut satırı sembolü
 [character]
 success_symbol = '[❯](bold green)'
 error_symbol = '[❯](bold red)'
 format = '$symbol '
 disabled = false
 
-# Disable the blank line at the start of the prompt
-#add_newline = false
-
-# You can also replace your username with a neat symbol like  or disable this
-# and use the os module below
 [username]
 show_always = true
 style_user = 'bg:#2C3E50'
@@ -62,11 +57,9 @@ style = 'bg:#2C3E50'
 format = '[$ssh_symbol $hostname]($style)'
 disabled = false
 
-# An alternative to the username module which displays a symbol that
-# represents the current operating system
 [os]
 style = 'bg:#2C3E50'
-disabled = true  # disabled by default
+disabled = true
 
 [directory]
 style = 'bg:#F1C40F fg:#2C3E50'
