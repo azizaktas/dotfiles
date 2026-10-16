@@ -1,15 +1,15 @@
 # Ana format (tek satır için line_break kaldırıldı)
 format = """
-[](#2C3E50)\
+[](#000000)\
 $os\
 $username\
 $hostname\
-[](bg:#F1C40F fg:#2C3E50)\
+[](bg:#FFFF00 fg:#000000)\
 $directory\
-[](fg:#F1C40F bg:#3498DB)\
+[](fg:#FFFF00 bg:#0000FF)\
 $git_branch\
 $git_status\
-[](fg:#3498DB bg:#2ECC71)\
+[](fg:#0000FF bg:#00FF00)\
 $c\
 $elixir\
 $elm\
@@ -23,11 +23,11 @@ $rust\
 $scala\
 $python\
 $rlang\
-[](fg:#2ECC71 bg:#F8EFE0)\
+[](fg:#00FF00 bg:#800000)\
 $docker_context\
-[](fg:#F8EFE0 bg:#EC8FD0)\
+[](fg:#800000 bg:#FF0000)\
 $conda\
-[ ](fg:#EC8FD0)\
+[ ](fg:#FF0000)\
 $character
 """
 
@@ -37,15 +37,15 @@ disabled = true
 
 # Tek satırlı komut satırı sembolü
 [character]
-success_symbol = '[❯](bold green)'
-error_symbol = '[❯](bold red)'
+success_symbol = '[❯](bold #00FF00)'
+error_symbol = '[❯](bold #FF0000)'
 format = '$symbol '
 disabled = false
 
 [username]
 show_always = true
-style_user = 'bg:#2C3E50'
-style_root = 'bg:#2C3E50'
+style_user = 'bg:#000000 fg:#FFFFFF bold'
+style_root = 'bg:#000000 fg:#FF0000 bold'
 format = '[$user ]($style)'
 disabled = false
 
@@ -53,101 +53,101 @@ disabled = false
 ssh_only = true
 ssh_symbol = '🌐'
 trim_at = '.'
-style = 'bg:#2C3E50'
+style = 'bg:#000000 fg:#FFFFFF bold'
 format = '[$ssh_symbol $hostname]($style)'
 disabled = false
 
 [os]
-style = 'bg:#2C3E50'
+style = 'bg:#000000'
 disabled = true
 
 [directory]
-style = 'bg:#F1C40F fg:#2C3E50'
+style = 'bg:#FFFF00 fg:#000000 bold'
 format = '[ $path ]($style)'
 truncation_length = 3
 truncation_symbol = '…/'
 
 [c]
 symbol = ''
-style = 'bg:#2ECC71 fg:#2C3E50'
+style = 'bg:#00FF00 fg:#000000 bold'
 format = '[ $symbol ($version) ]($style)'
 
 [conda]
 symbol = '🅒'
-style = 'bg:#EC8FD0 fg:#2C3E50'
+style = 'bg:#FF0000 fg:#FFFFFF bold'
 format = '[ $symbol $environment ]($style)'
 ignore_base = false
 
 [docker_context]
 symbol = ''
-style = 'bg:#FCA17D fg:#2C3E50'
+style = 'bg:#800000 fg:#FFFFFF bold'
 format = '[ $symbol $context ]($style) $path'
 
 [elixir]
 symbol = ''
-style = 'bg:#2ECC71 fg:#2C3E50'
+style = 'bg:#00FF00 fg:#000000 bold'
 format = '[ $symbol ($version) ]($style)'
 
 [elm]
 symbol = ''
-style = 'bg:#2ECC71 fg:#2C3E50'
+style = 'bg:#00FF00 fg:#000000 bold'
 format = '[ $symbol ($version) ]($style)'
 
 [git_branch]
 symbol = ''
-style = 'bg:#3498DB fg:#2C3E50'
+style = 'bg:#0000FF fg:#FFFFFF bold'
 format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = 'bg:#3498DB fg:#2C3E50'
+style = 'bg:#0000FF fg:#FFFFFF bold'
 format = '[$all_status$ahead_behind ]($style)'
 
 [golang]
 symbol = ''
-style = 'bg:#2ECC71 fg:#2C3E50'
+style = 'bg:#00FF00 fg:#000000 bold'
 format = '[ $symbol ($version) ]($style)'
 
 [haskell]
 symbol = ''
-style = 'bg:#2ECC71 fg:#2C3E50'
+style = 'bg:#00FF00 fg:#000000 bold'
 format = '[ $symbol ($version) ]($style)'
 
 [java]
 symbol = ''
-style = 'bg:#2ECC71 fg:#2C3E50'
+style = 'bg:#00FF00 fg:#000000 bold'
 format = '[ $symbol ($version) ]($style)'
 
 [julia]
 symbol = ''
-style = 'bg:#2ECC71 fg:#2C3E50'
+style = 'bg:#00FF00 fg:#000000 bold'
 format = '[ $symbol ($version) ]($style)'
 
 [nodejs]
 symbol = ''
-style = 'bg:#2ECC71 fg:#2C3E50'
+style = 'bg:#00FF00 fg:#000000 bold'
 format = '[ $symbol ($version) ]($style)'
 
 [nim]
 symbol = ''
-style = 'bg:#2ECC71 fg:#2C3E50'
+style = 'bg:#00FF00 fg:#000000 bold'
 format = '[ $symbol ($version) ]($style)'
 
 [python]
 symbol = '🐍'
 format = '[${symbol} ${pyenv_prefix} (${version} )(\($virtualenv\) )]($style)'
-style = 'bg:#2ECC71 fg:#2C3E50'
+style = 'bg:#00FF00 fg:#000000 bold'
 
 [rlang]
 symbol = '📐'
-style = 'bg:#2ECC71 fg:#2C3E50'
+style = 'bg:#00FF00 fg:#000000 bold'
 format = '[$symbol ($version )]($style)'
 
 [rust]
 symbol = ''
-style = 'bg:#2ECC71 fg:#2C3E50'
+style = 'bg:#00FF00 fg:#000000 bold'
 format = '[ $symbol ($version) ]($style)'
 
 [scala]
 symbol = ''
-style = 'bg:#2ECC71 fg:#2C3E50'
+style = 'bg:#00FF00 fg:#000000 bold'
 format = '[ $symbol ($version) ]($style)'
