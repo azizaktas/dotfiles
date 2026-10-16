@@ -1,0 +1,92 @@
+
+# # Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+
+add_newline = true
+
+format = """$time $all"""
+
+[character]
+success_symbol = "[➜](white)"
+error_symbol = "[➜](white)"
+
+[git_branch]
+symbol = "🌱 "
+truncation_length = 4
+truncation_symbol = ""
+# ignore_branches = ["master", "main"]
+format = "[](fg:#ffffff bg:none)[🌱](fg:#282c34 bg:#ffffff)[](fg:#ffffff bg:#24c90a)[ $branch]($style)[](fg:#24c90a bg:none) "
+style = "fg:#ffffff bg:#24c90a"
+
+[git_commit]
+commit_hash_length = 4
+tag_symbol = "🔖 "
+format = "[\\($hash\\)]($style) [\\($tag\\)]($style)"
+style = "green"
+
+[git_status]
+format="[](fg:#ffffff bg:none)[🥶](fg:#282c34 bg:#ffffff)[ ](fg:#ffffff bg:#4da0ff)[$modified](fg:#282c34 bg:#4da0ff)[$untracked](fg:#282c34 bg:#4da0ff)[$staged](fg:#282c34 bg:#4da0ff)[$renamed](fg:#282c34 bg:#4da0ff)[](fg:#4da0ff bg:none)"
+conflicted = ""
+ahead = "🏎💨"
+behind = "😰"
+diverged = "😵"
+up_to_date = "🥰"
+untracked = "🤷"
+stashed = "📦"
+modified = "📝"
+renamed = "👅"
+deleted = "🗑️"
+style = "red"
+disabled = false
+
+# [git_state]
+# rebase = "REBASING"
+# merge =	"MERGING"
+# revert = "REVERTING"
+# cherry_pick = "CHERRY-PICKING"
+# bisect = "BISECTING"
+# am = "AM"
+# am_or_rebase = "AM/REBASE"
+# style =	"yellow"
+# format = '\([$state( $progress_current/$progress_total)]($style)\) '
+# disabled = true
+
+
+[directory]
+format = "[](fg:#ffffff bg:none)[✨](fg:#ffffff bg:#ffffff)[](fg:#ffffff bg:#ffc32b)[ $path]($style)[](fg:#ffc32b bg:none) "
+style = "fg:#ffffff bg:#ffc32b"
+truncation_length = 3
+truncate_to_repo=false
+home_symbol = ""
+
+[python]
+format = "[](fg:#ffffff bg:none)[🐍](fg:#ffffff bg:#ffffff)[](fg:#ffffff bg:#2eb82e)[ (${version} )(\\($virtualenv\\))](fg:#ffffff bg:#2eb82e)[](fg:#2eb82e bg:none) "
+
+
+[time]
+disabled = false
+format="[](fg:#ffffff bg:none)[💖](fg:#ffffff bg:#ffffff)[](fg:#ffffff bg:#f72851)[ $time](fg:#ffffff bg:#f72851)[](fg:#f72851 bg:none)"
+time_format = "%T" #change to %R to only have HH:MM
+style="fg:#000000 bg:#f72851"
+
+
+[cmd_duration]
+min_time = 1000
+format="[](fg:#ffffff bg:none)[🚨](fg:#ffffff bg:#ffffff)[](fg:#ffffff bg:#e60000)[ took $duration](fg:#ffffff bg:#e60000)[](fg:#e60000 bg:none)"
+
+[docker_context]
+only_with_files = false      
+symbol  = "🐳 "
+style   = "fg:#3DA2FF"        # bright blue, tweak to taste
+format  = "[](fg:#3DA2FF bg:none)[$symbol$context]($style)[](fg:#3DA2FF bg:none) "
+
+[kubernetes]
+disabled = false              # the module is off by default
+symbol   = "🕸️"
+style    = "fg:#A8B9FE"       # kube-blue
+format   = "[](fg:#A8B9FE bg:none)[$symbol$context(/$namespace)]($style)[](fg:#A8B9FE bg:none) "
+
+# [[kubernetes.contexts]]
+# context_pattern = "colima"    # local Colima cluster
+# style           = "fg:#3DA2FF"
