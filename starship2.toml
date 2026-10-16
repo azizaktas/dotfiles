@@ -1,0 +1,148 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+command_timeout = 10000
+scan_timeout = 1000
+add_newline = true
+
+# Zıt ve Canlı Renk Dizilimi:
+# Siyah (#000000) -> Parlak Sarı (#FFFF00) -> Koyu Bordo (#500014) -> Canlı Yeşil (#00FF00) -> Saf Kırmızı (#FF0000) -> Derin Lacivert (#000080)
+
+format = """
+[](#000000)\
+$os\
+$username\
+[](bg:#FFFF00 fg:#000000)\
+$directory\
+[](fg:#FFFF00 bg:#500014)\
+$git_branch\
+$git_status\
+[](fg:#500014 bg:#00FF00)\
+$c\
+$cpp\
+$elixir\
+$elm\
+$golang\
+$gradle\
+$haskell\
+$java\
+$julia\
+$nodejs\
+$nim\
+$rust\
+$scala\
+[](fg:#00FF00 bg:#FF0000)\
+$docker_context\
+[](fg:#FF0000 bg:#000080)\
+$time\
+[ ](fg:#000080)\
+"""
+
+[username]
+show_always = true
+style_user = "bold fg:#FFFFFF bg:#000000"
+style_root = "bold fg:#FFFFFF bg:#000000"
+format = '[$user ]($style)'
+disabled = false
+
+[os]
+style = "bold fg:#FFFFFF bg:#000000"
+disabled = true
+
+[directory]
+style = "bold fg:#000000 bg:#FFFF00"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+[git_branch]
+symbol = ""
+style = "bold fg:#FFFFFF bg:#500014"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "bold fg:#FFFFFF bg:#500014"
+format = '[$all_status$ahead_behind ]($style)'
+
+# Diller / Teknolojiler: Parlak Fosforlu Yeşil Zemin
+[c]
+symbol = " "
+style = "bold fg:#000000 bg:#00FF00"
+format = '[ $symbol ($version) ]($style)'
+
+[cpp]
+symbol = " "
+style = "bold fg:#000000 bg:#00FF00"
+format = '[ $symbol ($version) ]($style)'
+
+[elixir]
+symbol = " "
+style = "bold fg:#000000 bg:#00FF00"
+format = '[ $symbol ($version) ]($style)'
+
+[elm]
+symbol = " "
+style = "bold fg:#000000 bg:#00FF00"
+format = '[ $symbol ($version) ]($style)'
+
+[golang]
+symbol = " "
+style = "bold fg:#000000 bg:#00FF00"
+format = '[ $symbol ($version) ]($style)'
+
+[gradle]
+style = "bold fg:#000000 bg:#00FF00"
+format = '[ $symbol ($version) ]($style)'
+
+[haskell]
+symbol = " "
+style = "bold fg:#000000 bg:#00FF00"
+format = '[ $symbol ($version) ]($style)'
+
+[java]
+symbol = " "
+style = "bold fg:#000000 bg:#00FF00"
+format = '[ $symbol ($version) ]($style)'
+
+[julia]
+symbol = " "
+style = "bold fg:#000000 bg:#00FF00"
+format = '[ $symbol ($version) ]($style)'
+
+[nodejs]
+symbol = ""
+style = "bold fg:#000000 bg:#00FF00"
+format = '[ $symbol ($version) ]($style)'
+
+[nim]
+symbol = "󰆥 "
+style = "bold fg:#000000 bg:#00FF00"
+format = '[ $symbol ($version) ]($style)'
+
+[rust]
+symbol = ""
+style = "bold fg:#000000 bg:#00FF00"
+format = '[ $symbol ($version) ]($style)'
+
+[scala]
+symbol = " "
+style = "bold fg:#000000 bg:#00FF00"
+format = '[ $symbol ($version) ]($style)'
+
+# Docker: Saf Kırmızı Zemin
+[docker_context]
+symbol = " "
+style = "bold fg:#FFFFFF bg:#FF0000"
+format = '[ $symbol $context ]($style)'
+
+# Saat: Derin Lacivert Zemin Üzerine Sarı Yazı/Simge
+[time]
+disabled = false
+time_format = "%R"
+style = "bold fg:#FFFF00 bg:#000080"
+format = '[ ♥ $time ]($style)'
