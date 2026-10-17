@@ -1,0 +1,34 @@
+# Üçgen Geçişli Kısa Format
+format = """
+[ $username ](bg:#FF0000 fg:#FFFFFF bold)\
+[](fg:#FF0000 bg:#000000)\
+[ $directory ](bg:#000000 fg:#FFFF00 bold)\
+[](fg:#000000 bg:#FF0000)\
+$git_branch\
+[](fg:#FF0000)\
+$character
+"""
+
+# Kullanıcı Adı (Parlak Kırmızı zemin, Saf Beyaz yazı)
+[username]
+show_always = true
+style_user = "bg:#FF0000 fg:#FFFFFF bold"
+style_root = "bg:#FF0000 fg:#FFFF00 bold"
+format = "$user"
+
+# Klasör (Saf Siyah zemin, Canlı Sarı yazı)
+[directory]
+style = "bg:#000000 fg:#FFFF00 bold"
+format = "$path"
+truncation_length = 2
+
+# Git Dalı (Parlak Kırmızı zemin, Saf Beyaz yazı)
+[git_branch]
+symbol = "🌿 "
+style = "bg:#FF0000 fg:#FFFFFF bold"
+format = "[ $symbol$branch ]($style)"
+
+# Komut Satırı Simgesi (Canlı Sarı)
+[character]
+success_symbol = " [❯](bold #FFFF00)"
+error_symbol = " [❯](bold #FF0000)"
